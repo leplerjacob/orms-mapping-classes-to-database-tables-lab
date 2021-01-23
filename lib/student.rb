@@ -52,7 +52,6 @@ class Student
   
   def initialize(*args)
       hash = {:name => args[0], :grade => args[1]}
-      # binding.pry
       hash.each do |key,value|
         self.class.attr_accessor(key)
         self.send(("#{key}="), value)
@@ -89,7 +88,7 @@ class Student
 
     DB[:conn].execute(sql)
   end
-  
+
   def self.create(name:, grade:)
     student = Student.new(name,grade)
     student.save
